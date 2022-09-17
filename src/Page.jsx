@@ -12,7 +12,7 @@ export default function Page(){
     const [pageno , setpageno] = React.useState(1)
 
     React.useEffect(()=>{
-            fetch('http://shibe.online/api/shibes?count=100')
+            fetch('https://shibe.online/api/shibes?count=100')
                 .then (response => response.json())
                 .then (data => set_DATA(data))
     }
