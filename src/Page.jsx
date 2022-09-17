@@ -4,7 +4,6 @@ import Paginat from "./Pag.jsx"
 import Inter from "./inter.jsx"
 
 export default function Page(){
-    // console.log("meow")
 
     const [DATA , set_DATA] = React.useState([])
 
@@ -13,43 +12,21 @@ export default function Page(){
     const [pageno , setpageno] = React.useState(1)
 
     React.useEffect(()=>{
-        // async function getResponse() {
             fetch('http://shibe.online/api/shibes?count=100')
                 .then (response => response.json())
                 .then (data => set_DATA(data))
-
-        // }
-        // getResponse()
     }
     ,[])
 
-    // console.log(DATA)
-
-    
-
-    // let array_to_render = DATA.map(each => {
-    //     return(
-    //         <img className="display_img" src = {each} />
-    //     )
-    // })
-
-
-
     function changemode(){
-        console.log("changing mode")
         set_light(prev => !prev)
     }
 
-
-
     function pagechange(event){
-        console.log(event.target.innerHTML)
         if(event.target.innerHTML == "Previous"){
-            console.log("will deduct")
             pageno > 1 ? setpageno(prev => prev-1) : null
         }
         if(event.target.innerHTML ==   "Next"  ){
-            console.log("will add")
             pageno < 4 ? setpageno(prev => prev+1) : null
         }
     }
