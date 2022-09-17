@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 .react_img{
-    height: 31px;
-    background-color:rgb(26, 160, 223);
+    height: 50px;
+    width : 50px;
+    background-color:rgb(0, 0, 0);
     border-radius : 50%;
-    padding : 6px 0px;
+    /* padding : 6px 0px; */
     opacity: 0.75;
     margin-left: 80%;
+    padding-right:-10%
+}
+
+.react_img:hover{
+    background-color: #287e79;
 }
 
 .container-fluid{
@@ -18,10 +25,10 @@
 
 .display_img{
     height : 270px;
-    width : 200px;
+    width : 250px;
     margin:30px;
-    border-radius: 10px;
-
+    border-radius: 17px;
+    border : 3px solid black
 }
 
 .array_div{
@@ -29,4 +36,50 @@
     flex-direction:row;
     justify-content:center;
     flex-wrap: wrap;
+}
+.btn-secondary{
+    position : relative;
+    right:6%
+}
+.sadau_page{
+    margin-left:20px;
+    
+}
+.pagination{
+    margin-left:20px;
+    padding-bottom : 40px;
+    margin-top : 20px;
+}
+.display-pagination{
+    color:black;
+}
+
+.display-pagination:hover{
+    color:black;
+}
+.outermost{
+    background : #96e3d46f;
+    
+}
+.rotate{
+    animation: rotation 4s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  .title_div{
+    display : flex;
+    flex-direction : row;
+    justify-content:center;
+    margin-top: 2%;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.d-flex{
+    margin-right : 20px;
 }
