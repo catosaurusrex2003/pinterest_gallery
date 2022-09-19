@@ -12,7 +12,7 @@ export default function Page(){
 
     const [DATA , set_DATA] = React.useState([])
 
-    const [light , set_light]  = React.useState(true)
+    const [light , set_light]  = React.useState(false)
 
     const [pageno , setpageno] = React.useState(1)
 
