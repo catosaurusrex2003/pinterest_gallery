@@ -116,6 +116,7 @@
     position : relative;
     bottom:5%;
     background-color: rgb(85, 85, 194);
+    font-size:13px
 }
 .del_fav_button{
     position : relative;
@@ -133,4 +134,18 @@
     flex-direction : row;
     justify-content:center;
     flex-wrap: wrap;
+}
+
+.button_holder{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+
+}
+
+.copy_button{
+    position : relative;
+    top:-3%;
+    font-size:13px;
+    margin-left: 20px;
 }

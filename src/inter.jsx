@@ -1,5 +1,10 @@
 import React from "react"
 // import Paginat from "./Pag"
+// import Popover from '@mui/material/Button';
+// import Button from '@mui/material/Button';
+
+
+
 
 export default function Inter(props){
 
@@ -14,7 +19,10 @@ export default function Inter(props){
                 array_to_render.push(
                     <div className="full_card">
                         <img href = {props.DATA[i]} className="display_img" src = {props.DATA[i]} />
-                        <button id = {i} type="button" className="btn btn-primary add_fav_button" onClick = {props.onClick} >Add to fav</button>
+                        <div className="button_holder">
+                            <button id = {i} type="button" className="btn btn-primary add_fav_button" onClick = {props.onClick} >Add to fav</button>
+                            <button id = {i} type="button" className="btn btn-secondary copy_button" onClick = {props.clicklink} >Copy link</button>
+                        </div>
                     </div>
                 )
             }

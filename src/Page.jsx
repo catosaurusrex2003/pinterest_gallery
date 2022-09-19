@@ -12,7 +12,7 @@ export default function Page(){
 
     const [DATA , set_DATA] = React.useState([])
 
-    const [light , set_light]  = React.useState(false)
+    const [light , set_light]  = React.useState(true)
 
     const [pageno , setpageno] = React.useState(1)
 
@@ -55,6 +55,13 @@ export default function Page(){
         set_fav_array(prev => [...prev , DATA[event.target.id] ])
     }
 
+    function clicklink(event){
+        let i = event.target.id
+        console.log(DATA[i])
+        navigator.clipboard.writeText(DATA[i]);
+        event.target.innerHTML = "copied"
+    }
+
     function remfav(event){
         console.log(event.target.id)
         set_fav_array(prev => {
@@ -76,7 +83,7 @@ export default function Page(){
     function Notfav(props){
         return(
             <div>
-                <Inter onClick = {props.onClick}  DATA = {DATA}  pageno={pageno}  />
+                <Inter onClick = {props.onClick}  DATA = {DATA}  pageno={pageno} clicklink = {props.clicklink} />
                 <Paginat pageno = {pageno} onClick = {(event) => {pagechange(event)}} />
             </div>
         )
@@ -85,14 +92,14 @@ export default function Page(){
     return(
         <div className="outermost" style = {light?outermost_style:null}>
             
-            <Navbar heartonClick = {togglefav} light = {light} onClick = {changemode}  style = {navbar_style}  /> 
+            <Navbar heartonClick = {togglefav} light = {light} onClick = {changemode}  style = {navbar_style} favon = {favon} /> 
 
             <div className="title_div" style = {light ? title_style:null}>
                 <h1>Pinterest shibe Images</h1>
             </div>
-            { !favon ?  <Notfav onClick = { (event) => addfav(event) } />
+            { !favon ?  <Notfav onClick = { (event) => addfav(event) } clicklink = {(event) => {clicklink(event)}} />
             :
-            <Favmaster  fav_array = {fav_array} onClick = {(event) => remfav(event)} />}
+            <Favmaster  fav_array = {fav_array} onClick = {(event) => remfav(event)} light = {light} />}
         </div>
     )
 }

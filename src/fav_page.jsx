@@ -9,6 +9,10 @@ function Favmessage(){
 
 export default function Favmaster(props){
 
+    let fav_dark_style = {
+        color:"#ffffff",
+    }
+
     let fav_array = props.fav_array
     console.log(fav_array)
     let fav_array_to_render = []
@@ -21,10 +25,12 @@ export default function Favmaster(props){
             )
         
     }
+
+    let light = props.light
     return(
         // {fav_array}
         // <h1>meow</h1>
-        <div className="fav_div">
+        <div className="fav_div" style={light ? fav_dark_style : null}  >
             <h1>Favourites</h1>
         {(fav_array_to_render.length < 1) ? <Favmessage/> :  <div className="inside_fav_div">{fav_array_to_render}</div>}
         </div>
