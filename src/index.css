@@ -94,6 +94,7 @@
     height : 45px;
     position :relative;
     right : 10%;
+    margin-left : 15px
 }
 .gitlogo:hover{
     box-shadow: 0 2px #666;
@@ -101,7 +102,7 @@
 .heart_nav{
     height : 45px;
     position: relative;
-    right : 15%;
+    right :9%;
 }
 .heart_nav:hover{
     box-shadow: 0 2px #666;
