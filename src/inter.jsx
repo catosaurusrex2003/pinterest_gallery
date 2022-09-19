@@ -12,8 +12,10 @@ export default function Inter(props){
         for(let i = garbage ; i < garbage+30 ; i++ ){
             if(props.DATA[i]!==undefined){
                 array_to_render.push(
-                    <img href = {props.DATA[i]} className="display_img" src = {props.DATA[i]} />
-                    
+                    <div className="full_card">
+                        <img href = {props.DATA[i]} className="display_img" src = {props.DATA[i]} />
+                        <button id = {i} type="button" className="btn btn-primary add_fav_button" onClick = {props.onClick} >Add to fav</button>
+                    </div>
                 )
             }
         }

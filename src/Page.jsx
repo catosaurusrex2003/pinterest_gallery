@@ -2,8 +2,13 @@ import React from "react"
 import Navbar from "./Navb.jsx"
 import Paginat from "./Pag.jsx"
 import Inter from "./inter.jsx"
+import Favmaster from "./fav_page.jsx"
 
 export default function Page(){
+
+    const [favon , set_favon] = React.useState(false)
+
+    const [fav_array,set_fav_array] =React.useState([])
 
     const [DATA , set_DATA] = React.useState([])
 
@@ -42,18 +47,52 @@ export default function Page(){
         background : "#3a947e"
     }
 
+    function togglefav(){
+        set_favon(prev => !prev)
+    }
+
+    function addfav(event){
+        set_fav_array(prev => [...prev , DATA[event.target.id] ])
+    }
+
+    function remfav(event){
+        console.log(event.target.id)
+        set_fav_array(prev => {
+            let array = []
+            for(let i = 0 ; i < prev.length ; i++){
+                if(i == event.target.id){
+                    null
+                }
+                else{
+                    array.push(prev[i])
+                }
+
+            }
+            return(array)
+        })
+        
+    }
+
+    function Notfav(props){
+        return(
+            <div>
+                <Inter onClick = {props.onClick}  DATA = {DATA}  pageno={pageno}  />
+                <Paginat pageno = {pageno} onClick = {(event) => {pagechange(event)}} />
+            </div>
+        )
+    }
+
     return(
         <div className="outermost" style = {light?outermost_style:null}>
             
-            <Navbar light = {light} onClick = {changemode}  style = {navbar_style}  /> 
+            <Navbar heartonClick = {togglefav} light = {light} onClick = {changemode}  style = {navbar_style}  /> 
 
             <div className="title_div" style = {light ? title_style:null}>
                 <h1>Pinterest shibe Images</h1>
             </div>
-
-            <Inter  DATA = {DATA}  pageno={pageno}  />
-
-            <Paginat pageno = {pageno} onClick = {(event) => {pagechange(event)}} />
+            { !favon ?  <Notfav onClick = { (event) => addfav(event) } />
+            :
+            <Favmaster  fav_array = {fav_array} onClick = {(event) => remfav(event)} />}
         </div>
     )
 }
